@@ -109,12 +109,13 @@ public class RenderOverlay extends RenderChunk {
                 if (!render) {
                     if (ConfigurationHandler.highlight) {
                         if (!isMcAirBlock) {
-                            if (schBlock != mcBlock) {
+                            if (schBlock != mcBlock || schBlock.getMetaFromState(schBlockState) != mcBlock.getMetaFromState(mcBlockState)) {
                                 render = true;
                                 color = 0xFF0000;
-                            } else if (schBlock.getMetaFromState(schBlockState) != mcBlock.getMetaFromState(mcBlockState)) {
+                            }
+                            if (ConfigurationHandler.highlightCorrect && schBlock == mcBlock && schBlock.getMetaFromState(schBlockState) == mcBlock.getMetaFromState(mcBlockState)) {
                                 render = true;
-                                color = 0xBF5F00;
+                                color = 0x00FF00;
                             }
                         } else if (!isSchAirBlock) {
                             render = true;
@@ -133,7 +134,9 @@ public class RenderOverlay extends RenderChunk {
                         preRenderBlocks(worldRenderer, from);
                     }
 
-                    GeometryTessellator.drawCuboid(worldRenderer, pos, sides, 0x3F000000 | color);
+                    int highlightAlpha = (int) (ConfigurationHandler.highlightAlpha * 255) * 16777216;
+
+                    GeometryTessellator.drawCuboid(worldRenderer, pos, sides, highlightAlpha | color);
                     compiledOverlay.setLayerUsed(layer);
                 }
             }

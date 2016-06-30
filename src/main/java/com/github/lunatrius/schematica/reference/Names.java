@@ -29,6 +29,10 @@ public final class Names {
         public static final String BLOCK_DELTA_DESC = "Delta value used for highlighting (if you experience z-fighting increase this).";
         public static final String RENDER_DISTANCE = "renderDistance";
         public static final String RENDER_DISTANCE_DESC = "Schematic render distance.";
+        public static final String HIGHLIGHT_CORRECT = "highlightCorrect";
+        public static final String HIGHLIGHT_CORRECT_DESC = "Highlight correct blocks.";
+        public static final String HIGHLIGHT_ALPHA = "highlightAlpha";
+        public static final String HIGHLIGHT_ALPHA_DESC = "Alpha value used when rendering the highlight (1.0 = opaque, 0.5 = half transparent, 0.0 = transparent).";
 
         public static final String PLACE_DELAY = "placeDelay";
         public static final String PLACE_DELAY_DESC = "Delay between placement attempts (in ticks).";

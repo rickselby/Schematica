@@ -37,6 +37,8 @@ public class ConfigurationHandler {
     public static final boolean HIGHLIGHT_AIR_DEFAULT = true;
     public static final double BLOCK_DELTA_DEFAULT = 0.005;
     public static final int RENDER_DISTANCE_DEFAULT = 8;
+    public static final boolean HIGHLIGHT_CORRECT_DEFAULT = false;
+    public static final double HIGHLIGHT_ALPHA_DEFAULT = 0.25;
     public static final int PLACE_DELAY_DEFAULT = 1;
     public static final int TIMEOUT_DEFAULT = 10;
     public static final int PLACE_DISTANCE_DEFAULT = 5;
@@ -64,6 +66,8 @@ public class ConfigurationHandler {
     public static boolean highlightAir = HIGHLIGHT_AIR_DEFAULT;
     public static double blockDelta = BLOCK_DELTA_DEFAULT;
     public static int renderDistance = RENDER_DISTANCE_DEFAULT;
+    public static boolean highlightCorrect = HIGHLIGHT_CORRECT_DEFAULT;
+    public static float highlightAlpha = (float) HIGHLIGHT_ALPHA_DEFAULT;
     public static int placeDelay = PLACE_DELAY_DEFAULT;
     public static int timeout = TIMEOUT_DEFAULT;
     public static int placeDistance = PLACE_DISTANCE_DEFAULT;
@@ -89,6 +93,8 @@ public class ConfigurationHandler {
     public static Property propHighlightAir = null;
     public static Property propBlockDelta = null;
     public static Property propRenderDistance = null;
+    public static Property propHighlightCorrect = null;
+    public static Property propHighlightAlpha = null;
     public static Property propPlaceDelay = null;
     public static Property propTimeout = null;
     public static Property propPlaceDistance = null;
@@ -164,6 +170,14 @@ public class ConfigurationHandler {
         propRenderDistance = configuration.get(Names.Config.Category.RENDER, Names.Config.RENDER_DISTANCE, RENDER_DISTANCE_DEFAULT, Names.Config.RENDER_DISTANCE_DESC, 2, 16);
         propRenderDistance.setLanguageKey(Names.Config.LANG_PREFIX + "." + Names.Config.RENDER_DISTANCE);
         renderDistance = propRenderDistance.getInt(RENDER_DISTANCE_DEFAULT);
+        
+        propHighlightCorrect = configuration.get(Names.Config.Category.RENDER, Names.Config.HIGHLIGHT_CORRECT, HIGHLIGHT_CORRECT_DEFAULT, Names.Config.HIGHLIGHT_CORRECT_DESC);
+        propHighlightCorrect.setLanguageKey(Names.Config.LANG_PREFIX + "." + Names.Config.HIGHLIGHT_CORRECT);
+        highlightCorrect = propHighlightCorrect.getBoolean(HIGHLIGHT_CORRECT_DEFAULT);
+
+        propHighlightAlpha = configuration.get(Names.Config.Category.RENDER, Names.Config.HIGHLIGHT_ALPHA, HIGHLIGHT_ALPHA_DEFAULT, Names.Config.HIGHLIGHT_ALPHA_DESC, 0.0, 1.0);
+        propHighlightAlpha.setLanguageKey(Names.Config.LANG_PREFIX + "." + Names.Config.HIGHLIGHT_ALPHA);
+        highlightAlpha = (float) propHighlightAlpha.getDouble(ALPHA_DEFAULT);
     }
 
     private static void loadConfigurationPrinter() {

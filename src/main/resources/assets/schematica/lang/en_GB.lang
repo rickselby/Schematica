@@ -73,6 +73,10 @@ schematica.config.blockDelta=Block Delta
 schematica.config.blockDelta.tooltip=Delta value used for highlighting (if you experience z-fighting increase this).
 schematica.config.renderDistance=Render Distance
 schematica.config.renderDistance.tooltip=Schematic render distance.
+schematica.config.highlightCorrect=Mark Correct Blocks
+schematica.config.highlightCorrect.tooltip=Put green marker on top of correct blocks.
+schematica.config.highlightAlpha=Highlight Alpha
+schematica.config.highlightAlpha.tooltip=Alpha value used when rendering the highlight (1.0 = opaque, 0.5 = half transparent, 0.0 = transparent).
 
 # gui - config - printer
 schematica.config.placeDelay=Placement Delay
